@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Senior Developer Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --success: #238636;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    header, section, footer {
+      padding: 2rem 1rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      animation: fadeIn 1s ease-out;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .hero-img {
+      max-width: 150px;
+      border-radius: 50%;
+      margin: 1rem auto;
+      display: block;
+      border: 2px solid var(--accent);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.3rem 0.6rem;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-button {
+      background: none;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .tab-button.active {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .skills-grid {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    .skills-grid.active {
+      display: grid;
+    }
+
+    .skills-grid div {
+      background: var(--card-bg);
+      padding: 0.75rem;
+      border-radius: 6px;
+      text-align: center;
+      border: 1px solid var(--border);
+      animation: fadeInUp 0.6s ease-in-out;
+      color: var(--success);
+      font-weight: bold;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel-item {
+      flex: 0 0 auto;
+      width: 280px;
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      scroll-snap-align: start;
+    }
+
+    .carousel-item img, .carousel-item video {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .links {
+      margin-top: 0.5rem;
+    }
+
+    .links a {
+      color: var(--accent);
+      margin-right: 0.5rem;
+      text-decoration: none;
+    }
+
+    .project {
+      margin-bottom: 2rem;
+    }
+
+    .work-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .work-section li {
+      margin-bottom: 1rem;
+    }
+
+    form input, form textarea {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    form button {
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #1f6feb;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #8b949e;
+      margin-top: 2rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Senior Full-Stack & Mobile Developer</h1>
+    <p>Kotlin · Compose Multiplatform · Android · iOS · NestJS · DevOps</p>
+    <img src="hero.png" alt="Hero Image" class="hero-img">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a senior developer with expertise in cross-platform mobile apps, backend systems, localization, DevOps, and plugin development. I architect full-stack solutions from design to deployment.</p>
+  </section>
+
+  <!-- Skills section remains unchanged -->
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="carousel">
+      <div class="carousel-item">
+        <h3>Tex Logistic</h3>
+        <video src="tex-logistic.mp4" controls></video>
+        <div class="links">
+          <a href="#"><i class="fab fa-google-play"></i></a>
+          <a href="#"><i class="fab fa-app-store-ios"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fas fa-globe"></i></a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <h3>Balary Marketplace</h3>
+        <img src="balary.png" alt="Balary Screenshot">
+        <div class="links">
+          <a href="#"><i class="fab fa-google-play"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="work-section">
+    <h2>Work Experience</h2>
+    <ul>
+      <li>
+        <strong>Tex Logistic</strong>: Kotlin, Ktor, Compose, Google Maps
+      </li>
+      <li>
+        <strong>Balary Marketplace</strong>: Compose Multiplatform, Firebase, Ktor
+      </li>
+      <li>
+        <strong>MediaCMS Integration</strong>: Video encoding, backend REST, DevOps
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="handleSubmit(event)" style="max-width: 400px">
+      <input type="text" placeholder="Your Name" required style="width: 100%;">
+      <input type="email" placeholder="Your Email" required style="width: 100%;">
+      <textarea placeholder="Your Message" required style="width: 100%; height: 100px;"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Your Name. All rights reserved.
+  </footer>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert("Thank you! Your message has been sent.");
+    }
+
+    function showTab(id) {
+      const tabs = document.querySelectorAll('.skills-grid');
+      const buttons = document.querySelectorAll('.tab-button');
+      tabs.forEach(t => t.classList.remove('active'));
+      buttons.forEach(b => b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
